@@ -14,9 +14,8 @@ class Core
 	public function __construct()
 	{
 		$url = $this->getUrl();
-
 		// Look in controllers for first value
-		if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
+		if (isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
 			$this->currentController = ucwords($url[0]);
 			// Unset 0 index
 			unset($url[0]);
